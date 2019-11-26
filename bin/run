@@ -1,0 +1,21 @@
+#!/usr/bin/env node
+
+require('rooty')()
+const config = require('config')
+const http = require('http')
+const service = require('^server/service')(config)
+
+const log = config.log()
+const server = http.createServer(service)
+
+const logMap = {
+  test: '测试',
+  development: '开发',
+  production: '生产',
+}
+
+server.listen(config.port, () => {
+  log.info(
+    `服务注册表微服务以${logMap[service.get('env')]}模式运行在端口 ${server.address().port}`,
+  )
+})

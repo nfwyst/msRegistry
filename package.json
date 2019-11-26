@@ -1,0 +1,34 @@
+{
+  "name": "msRegistry",
+  "version": "1.0.0",
+  "description": "microservice registry",
+  "scripts": {
+    "start:dev": "NODE_ENV=development nodemon --ignore server/database bin/run | bunyan",
+    "start:prod": "NODE_ENV=production node bin/run | bunyan",
+    "start:test": "NODE_ENV=test node bin/run | bunyan",
+    "start": "NODE_ENV=development nodemon --ignore server/database bin/run | bunyan"
+  },
+  "keywords": [
+    "service",
+    "registry"
+  ],
+  "author": "nfwyst",
+  "license": "ISC",
+  "dependencies": {
+    "bunyan": "^1.8.12",
+    "config": "^3.2.4",
+    "express": "^4.16.4",
+    "lowdb": "^1.0.0",
+    "ramda": "^0.26.1",
+    "rooty": "^2.0.0",
+    "semver": "^6.3.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.1",
+    "eslint": "^5.14.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "nodemon": "^2.0.1"
+  }
+}
