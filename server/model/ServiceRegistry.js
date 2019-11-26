@@ -1,4 +1,5 @@
 const path = require('path')
+const fs = require('fs')
 const low = require('lowdb')
 const { forEach } = require('ramda')
 const FileSync = require('lowdb/adapters/FileSync')
@@ -9,9 +10,24 @@ class ServiceRegistry {
       path.dirname(process.mainModule.filename),
       '..', 'server', 'database', 'db.json'
     )
+    this.mkfile(pt)
     const adapter = new FileSync(pt)
     this.db = low(adapter)
     this.db.defaults({}).write()
+  }
+
+  mkfile(filePath) {
+    if (fs.existsSync(filePath)) return true
+    this.mkdir(path.dirname(filePath))
+    fs.closeSync(fs.openSync(filePath, 'w'))
+  }
+
+  mkdir(dirname) {
+    if (fs.existsSync(dirname)) return true
+    if (this.mkdir(path.dirname(dirname))) {
+      fs.mkdirSync(dirname)
+      return true
+    }
   }
 
   to64(str) {
