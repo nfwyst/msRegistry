@@ -7,6 +7,8 @@ module.exports = (config) => {
   const log = config.log()
   const serviceRegistry = new ServiceRegistry(log, config.get('serviceTimeout'))
 
+  if(config.get('proxy')) service.set('trust proxy')
+
   if (service.get('env') === 'development') {
     service.use((req, res, next) => {
       log.debug(`${req.method}: ${req.url}`)
