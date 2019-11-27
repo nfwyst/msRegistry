@@ -5,7 +5,7 @@ const service = express()
 
 module.exports = (config) => {
   const log = config.log()
-  const serviceRegistry = new ServiceRegistry(log)
+  const serviceRegistry = new ServiceRegistry(log, config.get('serviceTimeout'))
 
   if (service.get('env') === 'development') {
     service.use((req, res, next) => {

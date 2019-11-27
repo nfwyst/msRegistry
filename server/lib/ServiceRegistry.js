@@ -3,10 +3,10 @@ const { filter, pipe, values, forEachObjIndexed } = require('ramda')
 const serviceRegistryModel = require('^server/model/ServiceRegistry')
 
 class ServiceRegistry {
-  constructor(log) {
+  constructor(log, timeout) {
     this.log = log
     this.services = new serviceRegistryModel()
-    this.timeout = 30
+    this.timeout = timeout
   }
 
   register(name, version, ip, port) {

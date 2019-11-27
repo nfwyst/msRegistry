@@ -1,5 +1,5 @@
 {
-  "name": "msRegistry",
+  "name": "ms-registry",
   "version": "1.0.0",
   "description": "microservice registry",
   "scripts": {
