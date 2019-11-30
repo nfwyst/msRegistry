@@ -6,7 +6,7 @@ A tiny and easy to use microservices registry server with [express](https://expr
 
 1. clone the repo:
   ```sh
-  https://github.com/nfwyst/msRegistry
+  git clone https://github.com/nfwyst/msRegistry
   ```
 2. run at development mode:
   ```sh
