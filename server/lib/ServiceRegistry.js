@@ -25,7 +25,8 @@ class ServiceRegistry {
 
   unregister(name, version, ip, port) {
     const key = `${name}${version}${ip}${port}`
-    this.services.remove(key)
+    this.services.remove(this.services.to64(key))
+    this.log.debug(`删除微服务: ${name}, 版本: ${version} ip: ${ip} 端口: ${port}`)
     return key
   }
 
