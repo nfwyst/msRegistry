@@ -16,7 +16,7 @@
   "license": "ISC",
   "dependencies": {
     "bunyan": "^1.8.12",
-    "config": "^3.2.4",
+    "config": "^3.3.8",
     "express": "^4.16.4",
     "lowdb": "^1.0.0",
     "ramda": "^0.26.1",
